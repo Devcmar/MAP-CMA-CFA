@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte établissements et CFA - CMAR</title>
+    <link rel="stylesheet" href="styles_index.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+<div class="container">
+    <div class="left-div">
+        <div class="title-item"><h1 class="h1">Nous trouver</h1></div>
+        <div class="list-container"> </div>
+    </div>
+    <div class="toggle-switch non-selectable" onclick="toggleSwitch()">
+        <div class="toggle-option cma">CMA
+<img id="markerCmaWhite" src="markerWhite.svg" class="img-marker" alt="">
+        </div>
+        <div class="toggle-option cfa">CFA
+            <img id="markerCfa" src="markerCFA.svg" class="img-marker" alt="">
+        </div>
+    </div>
+
+    <div id="map" class="right-div"></div>
+</div>
+<script>
+    toggleBool = true;
+            // Fonction pour basculer le bouton toggle
+            function toggleSwitch() {
+            const toggleSwitch = document.querySelector('.toggle-switch');
+            imgCma = document.getElementById("markerCmaWhite");
+            imgCfa = document.getElementById("markerCfa");
+            toggleSwitch.classList.toggle('active');
+            if (toggleBool == true) {
+                toggleBool = false;
+                imgCma.src = "marker.svg";
+                imgCfa.src = "markerCFAWhite.svg";
+                clearAllMarkers();
+                addDataToMap("cfa");
+            } else {
+                toggleBool = true;
+                imgCma.src = "markerWhite.svg";
+                imgCfa.src = "markerCFA.svg";
+                clearAllMarkers();
+                addDataToMap("cma");
+            }
+        }
+</script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    <script src="fonctions.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</body>
+</html>
