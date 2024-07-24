@@ -45,22 +45,22 @@ var divItemLength = divItem.length;
 var csvFilePath = "";
 
 if (from == "cfa"){
-    var csvFilePath = "cfa.csv";
-    var markerList = "markerCFA.svg";
+    var csvFilePath = "data/cfa.csv";
+    var markerList = "logo/markerCFA.svg";
         // Définir une icône personnalisée pour CFA
         var customIcon = L.icon({
-            iconUrl: 'markerCFA.svg', // Remplacez par le chemin de votre image
+            iconUrl: 'logo/markerCFA.svg', // Remplacez par le chemin de votre image
             iconSize: [38, 38], // Taille de l'icône
             iconAnchor: [19, 38], // Point de l'icône qui correspondra à la position du marqueur
             popupAnchor: [0, -38] // Point où la popup s'ouvre par rapport à l'icône
         });
     
 } else if (from == "cma"){
-    var csvFilePath = "cma.csv";
-    var markerList = "marker.svg";
+    var csvFilePath = "data/cma.csv";
+    var markerList = "logo/marker.svg";
     // Définir une icône personnalisée pour CMA
     var customIcon = L.icon({
-        iconUrl: 'marker.svg', // Remplacez par le chemin de votre image
+        iconUrl: 'logo/marker.svg', // Remplacez par le chemin de votre image
         iconSize: [38, 38], // Taille de l'icône
         iconAnchor: [19, 38], // Point de l'icône qui correspondra à la position du marqueur
         popupAnchor: [0, -38] // Point où la popup s'ouvre par rapport à l'icône
@@ -175,9 +175,9 @@ function getUrlParameters() {
 async function processData(id, nom) {
     let csv;
     if (nom.includes("CMA")) {
-        csv = "cma.csv";
+        csv = "data/cma.csv";
     } else if (nom.includes("CFA")) {
-        csv = "cfa.csv";
+        csv = "data/cfa.csv";
     }
     if (csv) {
         try {
@@ -221,7 +221,7 @@ async function initializeMap(id, nom) {
         var divLogoContact = document.getElementsByClassName('logo-contacts')
         var imgContact = document.createElement('img')
         imgContact.className = "imgInfo";
-        imgContact.src = 'info.svg';
+        imgContact.src = 'logo/info.svg';
         divLogoContact[0].append(imgContact);
         var textContact = document.getElementsByClassName('text-contacts');
         textContact[0].innerHTML = data.Telephone;
@@ -229,7 +229,7 @@ async function initializeMap(id, nom) {
         var divLogoAdresse = document.getElementsByClassName('logo-adresse')
         var imgAdresse = document.createElement('img')
         imgAdresse.className = "imgAdresse";
-        imgAdresse.src = 'location.svg';
+        imgAdresse.src = 'logo/location.svg';
         divLogoAdresse[0].append(imgAdresse);
         var textAdresse = document.getElementsByClassName('text-adresse');
         textAdresse[0].innerHTML = data.Adresse;
@@ -237,7 +237,7 @@ async function initializeMap(id, nom) {
         var divLogoHoraire = document.getElementsByClassName('logo-horaires')
         var imgHoraires = document.createElement('img')
         imgHoraires.className = "imgHoraires";
-        imgHoraires.src = 'clock.svg';
+        imgHoraires.src = 'logo/clock.svg';
         divLogoHoraire[0].append(imgHoraires);
         var textHoraires = document.getElementsByClassName('text-horaires');
         textHoraires[0].innerHTML = data.Horaires;

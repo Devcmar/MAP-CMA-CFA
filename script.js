@@ -9,7 +9,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Chargement des données des établissements
 // Chemin vers votre fichier CSV
-const csvGeoJsonPath = 'departements_geom_20180101.csv';
+const csvGeoJsonPath = 'data/departements_geom_20180101.csv';
 var markers = [];
 // Variable pour stocker les données CSV
 let csvData = [];
