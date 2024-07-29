@@ -66,7 +66,7 @@ h3{
 .title-item{
     
     margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     text-align: left;
     width: 55%;
   margin-left: 40%;
@@ -328,4 +328,69 @@ body {
             margin-left: 2% !important;
             margin-right: 2% !important;
         }
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-div {
+    border: 1px solid #91b6c0;
+    border-radius: 50px; /* Arrondir les coins du champ de recherche */
+    font-size: 16px;
+    width: auto;
+    outline: none;
+    width: fit-content;
+  margin-left: 40%;
+  margin-right: 5%;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.search-input {
+border-radius: 50px; /* Arrondir les coins du champ de recherche */
+padding: 10px 40px 10px 20px; /* Ajouter de l'espace pour l'icône à droite */
+font-size: 16px;
+width: 250px;
+
+}
+
+
+.input-bar{
+background-color: #fff;
+border: #fff;
+margin-left: 10px;
+margin-top: 5px;
+margin-bottom: 5px;
+outline: none; /* Supprimer la bordure bleue par défaut */
+box-shadow: none; /* Supprimer toute ombre qui pourrait apparaître */
+}
+
+.input-bar:focus {
+    border-color: #fff; /* Couleur de la bordure lorsque le champ est focalisé */
+    box-shadow: none; /* Supprimer l'ombre portée lorsque le champ est focalisé */
+}
+
+.search-icon {
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.suggestions-container {
+    border: 1px solid #91b6c0;
+    position: block;
+    width: 50%;
+    background-color: white;
+    max-height: 100px;
+    overflow-y: auto;
+    z-index: 10;
+    display: none; /* Initialement caché */
+    margin-left: 40%;
+  margin-right: 5%;
+  margin-bottom: 20px;
+  border-radius: 10px;
 }

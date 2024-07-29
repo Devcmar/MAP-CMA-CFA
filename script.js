@@ -10,11 +10,14 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Chargement des données des établissements
 // Chemin vers votre fichier CSV
 const csvGeoJsonPath = 'data/departements_geom_20180101.csv';
+const csvCity = 'data/villes.csv';
 var markers = [];
 // Variable pour stocker les données CSV
 let csvData = [];
-dataGeoJsonTest = loadCSVSync(csvGeoJsonPath)
-var geoJSONDpt = JSON.parse(dataGeoJsonTest);
+dataGeoJson = loadCSVSync(csvGeoJsonPath)
+var geoJSONDpt = JSON.parse(dataGeoJson);
+
+
 
 // Définir un style pour le GeoJSON
 function style(feature) {
@@ -36,3 +39,46 @@ addDataToMap("cma");
 
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const suggestionsContainer = document.getElementById('suggestions');
+
+    var dataCity = loadCSVSync(csvCity);
+    cities = parseCSV(dataCity);
+
+    searchInput.addEventListener('input', function() {
+        const query = searchInput.value.toLowerCase();
+        suggestionsContainer.innerHTML = '';
+        if (query.length === 0) {
+            suggestionsContainer.style.display = 'none';
+            return;
+        }
+
+        const filteredData = cities.filter(item =>
+            item.label.toLowerCase().includes(query) || item.code_postale.includes(query)
+        );
+
+        if (filteredData.length > 0) {
+            suggestionsContainer.style.display = 'block';
+            filteredData.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'suggestion-item';
+                div.textContent = `${item.label} (${item.code_postale})`;
+                div.addEventListener('click', function() {
+                    searchInput.value = item.label;
+                    suggestionsContainer.innerHTML = '';
+                    suggestionsContainer.style.display = 'none';
+                });
+                suggestionsContainer.appendChild(div);
+            });
+        } else {
+            suggestionsContainer.style.display = 'none';
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!searchInput.contains(event.target) && !suggestionsContainer.contains(event.target)) {
+            suggestionsContainer.style.display = 'none';
+        }
+    });
+});
