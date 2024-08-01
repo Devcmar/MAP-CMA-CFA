@@ -146,6 +146,24 @@ button:hover {
     margin-left:0px;
 }
 
+.boutton-voir-la-fiche-marker {
+    background-color: #e94b3c; 
+    color: white;
+    border: 1px solid #e94b3c;
+    border-radius: 25px; 
+    padding: 10px 20px; 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 14px; 
+    font-weight: 600;
+    cursor: pointer; 
+    transition: background-color 0.3s, color 0.3s; 
+    margin-left:0px;
+}
+
+.boutton-voir-la-fiche-marker:hover{
+    background-color: rgb(180, 0, 0);
+}
+
 .boutton-voir-la-fiche:hover {
     background-color: rgb(180, 0, 0); /* Fond rouge au survol */
     color: white; /* Écriture blanche au survol */
@@ -154,10 +172,12 @@ button:hover {
 
 .boutton-itineraire {
     background-color: white; 
-    color: #e94b3c;
+    color: #e94b3c !important;
     font-family: 'Montserrat', sans-serif; 
-    font-size: 14px; 
+    font-size: 16px; 
     font-weight: 600;
+    text-decoration: none;
+    margin-left: 20px;
 }  
 
 .non-selectable {
@@ -337,7 +357,7 @@ body {
 }
 
 .search-input-div {
-    border: 1px solid #91b6c0;
+  
     border-radius: 50px; /* Arrondir les coins du champ de recherche */
     font-size: 16px;
     width: auto;
@@ -347,7 +367,13 @@ body {
   margin-right: 5%;
   margin-bottom: 20px;
   background-color: #fff;
+  border: 1px solid #fff;
 }
+
+.search-input-div:hover {
+    border: 1px solid #91b6c0;
+}
+
 
 .search-input {
 border-radius: 50px; /* Arrondir les coins du champ de recherche */
@@ -385,12 +411,52 @@ box-shadow: none; /* Supprimer toute ombre qui pourrait apparaître */
     position: block;
     width: 50%;
     background-color: white;
-    max-height: 100px;
+    max-height: 200px;
     overflow-y: auto;
     z-index: 10;
     display: none; /* Initialement caché */
     margin-left: 40%;
-  margin-right: 5%;
-  margin-bottom: 20px;
-  border-radius: 10px;
+    margin-right: 5%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+/* Styles pour chaque élément de suggestion */
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer; /* Change le curseur en pointeur pour indiquer que c'est cliquable */
+    border-bottom: 1px solid #ddd; /* Ajoute une bordure entre les éléments */
+}
+
+/* Style pour l'effet de survol */
+.suggestion-item:hover {
+    background-color: #f0f0f0; /* Change la couleur de fond au survol */
+    color: #333; /* Change la couleur du texte au survol */
+}
+
+.distance-div {
+    color: #5c757c
+}
+
+.div-item-marker {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+.p-marker {
+    line-height: 20px;
+    font-size: 14px;
+    margin-top: 5px !important; /* Aucun espace au-dessus */
+    margin-bottom: 5px !important; /* Moins d'espace en dessous */
+}
+
+.ancre-black {
+    color: black !important;
+}
+
+.h3-popup{
+    font-size: 15px;
 }

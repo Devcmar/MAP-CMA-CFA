@@ -21,7 +21,7 @@
         <div class="title-item"><h1 class="h1">Nous trouver</h1></div>
 
         <div class="search-input-div">
-            <input type="text" class="input-bar" id="searchInput" placeholder="Ville ou code postale">
+            <input type="text" class="input-bar" autocomplete="off" id="searchInput" placeholder="Ville ou code postale">
             <span class="search-icon">🔍</span>
         </div>
         <div id="suggestions" class="suggestions-container"></div>
@@ -44,10 +44,12 @@
     toggleBool = true;
             // Fonction pour basculer le bouton toggle
             function toggleSwitch() {
+            searchInput.value = "";
             const toggleSwitch = document.querySelector('.toggle-switch');
             imgCma = document.getElementById("markerCmaWhite");
             imgCfa = document.getElementById("markerCfa");
             toggleSwitch.classList.toggle('active');
+            map.setView([43.9352, 6.0679], 8);
             if (toggleBool == true) {
                 toggleBool = false;
                 imgCma.src = "logo/marker.svg";

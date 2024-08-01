@@ -37,48 +37,24 @@ addDataToMap("cma");
 // Charger et parser le CSV, puis stocker les données dans la variable
 
 
+//document.addEventListener('DOMContentLoaded', function() {});
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('searchInput');
-    const suggestionsContainer = document.getElementById('suggestions');
 
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input',handleInputEvent );
+
+
+
+    var searchIcon = document.getElementsByClassName('search-icon')[0];
+    var suggestionsContainer = document.getElementById('suggestions');
+
+    // Chargement et parsing des données CSV
     var dataCity = loadCSVSync(csvCity);
     cities = parseCSV(dataCity);
 
-    searchInput.addEventListener('input', function() {
-        const query = searchInput.value.toLowerCase();
-        suggestionsContainer.innerHTML = '';
-        if (query.length === 0) {
-            suggestionsContainer.style.display = 'none';
-            return;
-        }
+    // Écouteur d'événements pour le champ de saisie
+    
 
-        const filteredData = cities.filter(item =>
-            item.label.toLowerCase().includes(query) || item.code_postale.includes(query)
-        );
+    //searchIcon.addEventListener('click',searchBar );
 
-        if (filteredData.length > 0) {
-            suggestionsContainer.style.display = 'block';
-            filteredData.forEach(item => {
-                const div = document.createElement('div');
-                div.className = 'suggestion-item';
-                div.textContent = `${item.label} (${item.code_postale})`;
-                div.addEventListener('click', function() {
-                    searchInput.value = item.label;
-                    suggestionsContainer.innerHTML = '';
-                    suggestionsContainer.style.display = 'none';
-                });
-                suggestionsContainer.appendChild(div);
-            });
-        } else {
-            suggestionsContainer.style.display = 'none';
-        }
-    });
-
-    document.addEventListener('click', function(event) {
-        if (!searchInput.contains(event.target) && !suggestionsContainer.contains(event.target)) {
-            suggestionsContainer.style.display = 'none';
-        }
-    });
-});

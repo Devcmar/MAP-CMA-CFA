@@ -69,16 +69,37 @@ if (from == "cfa"){
     loadCSV(csvFilePath)
     .then(csvText => {
         csvData = parseCSV(csvText);
+
+        var marker = {};
         // ajouter des marqueurs à la carte
         csvData.forEach(row => {
             var lat = parseFloat(row.lat);
             var long = parseFloat(row.long);
             if (lat && long) {
-/*                 L.marker([lat, long]).addTo(map)
-                    .bindPopup(row.Nom || 'No name'); */
-                    var marker = L.marker([lat, long], { icon: customIcon }).addTo(map)
-                    .bindPopup(row.Nom || 'No name');
-                    markers.push(marker);
+
+                if (from == "cma"){
+                    var buttonFiche = `<button class="boutton-voir-la-fiche-marker" onclick="window.location.href='item.html?${row.Id}/${row.Nom}'"> VOIR LA FICHE</button>`
+                }else if ( from == "cfa"){
+                    var buttonFiche = `
+                    <button class="boutton-voir-la-fiche" onclick="window.open('${row.site}', '_blank');">
+        VOIR LE SITE
+    </button>`;
+                }
+                    
+                    marker[row.id] = L.marker([lat, long], { icon: customIcon }).addTo(map)
+                    .bindPopup(
+                        `<div class="popupMarker">
+                        <h3 class="h3-popup" >${row.Nom }</h3>
+                        <div class= "div-item-marker" ><img src="logo/location-black.svg" class="img-marker" alt=""><p class= "p-marker">${row.Adresse }</p></div>
+                        <div class= "div-item-marker"><img src="logo/telephone.svg" class="img-marker" alt=""><p class= "p-marker">${row.Telephone }</p></div>
+                        <div class= "div-item-marker"><img src="logo/enveloppe.svg" class="img-marker" alt=""><a class="ancre-black" href="https://www.cmar-paca.fr/contact" >Nous contacter</a></div>
+                        <div class= "div-item-marker">` +
+                        buttonFiche +
+                        `<a class="boutton-itineraire" target= "_blank" href="https://www.google.com/maps/dir/My+location/${row.lat},${row.long}"> Itinéraire</a>
+                        </div>
+                        </div>`
+                );
+                    markers.push(marker[row.id]);
             }
         }); 
 
@@ -88,9 +109,16 @@ if (divItemLength > 0){
 }
         csvData.forEach(row => {
            
-            
                 var itemDiv = document.createElement('div');
                 itemDiv.className = 'list-item';
+                itemDiv.dataset.ville = row.ville;
+                itemDiv.dataset.lat = row.lat;
+                itemDiv.dataset.long = row.long;
+                itemDiv.id = row.Nom;
+                itemDiv.onclick = function(){
+                    console.log(markers[row.Id])
+                    markers[row.Id].openPopup();
+                }
             
                 var leftItemDiv = document.createElement('div');
                 leftItemDiv.className = 'left-div-list-item';
@@ -101,15 +129,14 @@ if (divItemLength > 0){
 
                 img.src = markerList; // Remplacez par l'URL de votre image
                 img.className = 'img-marker-list';
-
-        
+    
                 // Ajouter l'image à la div
                 leftItemDiv.appendChild(img);
     
                 listContainer[0].appendChild(itemDiv);
                 // Titre avec département et ville
                 var title = document.createElement('h3');
-                title.textContent = `${row.departement}`;
+                title.textContent = `${row.Nom}`;
         
                 itemDiv.appendChild(leftItemDiv);
                 itemDiv.appendChild(righttItemDiv);
@@ -121,24 +148,39 @@ if (divItemLength > 0){
                 subtitle.textContent = `${row.ville} (${row.CP})`;
                 righttItemDiv.appendChild(subtitle);
         
-                // Bouton "Voir la fiche"
-                var viewButton = document.createElement('button');
-                viewButton.textContent = 'VOIR LA FICHE';
-                viewButton.className="boutton-voir-la-fiche";
-                viewButton.addEventListener('click', function() {
-                    var baseUrl = 'item.html';  // Remplacez par l'URL de votre page cible
-                    var parameter = `${row.Id}/${row.Nom}`;
-                    const newUrl = `${baseUrl}?${parameter}`;
-                    window.location.href = newUrl;
-                });
-                righttItemDiv.appendChild(viewButton);
+                var buttonsDiv = document.createElement('div');
+                buttonsDiv.className = 'buttonsDiv';
 
-        
+                if (from == "cma"){
+                    var viewButton = document.createElement('button');
+                    viewButton.textContent = 'VOIR LA FICHE';
+                    viewButton.className="boutton-voir-la-fiche";
+                    viewButton.addEventListener('click', function() {
+                        var baseUrl = 'item.html';  // Remplacez par l'URL de votre page cible
+                        var parameter = `${row.Id}/${row.Nom}`;
+                        const newUrl = `${baseUrl}?${parameter}`;
+                        window.location.href = newUrl;
+                    });
+                    buttonsDiv.appendChild(viewButton)
+                } else if (from == "cfa"){
+                    var viewButton = document.createElement('button');
+                    viewButton.textContent = 'VOIR LE SITE';
+                    viewButton.className="boutton-voir-la-fiche";
+                    viewButton.target="_blank";
+                    viewButton.onclick = function() {
+                        window.open(row.site, '_blank'); // Ouvrir l'URL dans un nouvel onglet
+                    };
+                    buttonsDiv.appendChild(viewButton)
+                }
+
                 // Bouton "Itinéraire"
-                var directionButton = document.createElement('button');
-                directionButton.className="boutton-itineraire"
+                var directionButton = document.createElement('a');
+                directionButton.className="boutton-itineraire";
                 directionButton.textContent = 'Itinéraire';
-                righttItemDiv.appendChild(directionButton);
+                directionButton.href = `https://www.google.com/maps/dir/My+location/${row.lat},${row.long}`;
+                directionButton.target = "_blank";
+                buttonsDiv.appendChild(directionButton);
+                righttItemDiv.appendChild(buttonsDiv);
         }); 
     })
     .catch(error => console.error('Error loading CSV:', error));
@@ -173,10 +215,11 @@ function getUrlParameters() {
 
 
 async function processData(id, nom) {
-    let csv;
+    console.log("id", id,"nom", nom)
+    var csv;
     if (nom.includes("CMA")) {
         csv = "data/cma.csv";
-    } else if (nom.includes("CFA")) {
+    } else if (nom.includes("Centre de formation")) {
         csv = "data/cfa.csv";
     }
     if (csv) {
@@ -214,8 +257,15 @@ async function initializeMap(id, nom) {
             attribution: 'OpenStreetMap'
         }).addTo(map);
 
+        var customIcon = L.icon({
+            iconUrl: 'logo/marker.svg', // Remplacez par le chemin de votre image
+            iconSize: [38, 38], // Taille de l'icône
+            iconAnchor: [19, 38], // Point de l'icône qui correspondra à la position du marqueur
+            popupAnchor: [0, -38] // Point où la popup s'ouvre par rapport à l'icône
+        });
+
         // Ajouter un marqueur
-        L.marker([lat, long]).addTo(map)
+        L.marker([lat, long], {icon : customIcon}).addTo(map)
             .bindPopup(`Location: ${lat}, ${long}`)
 
         var divLogoContact = document.getElementsByClassName('logo-contacts')
@@ -244,3 +294,102 @@ async function initializeMap(id, nom) {
 
     }
 }
+
+function handleInputEvent(event) {
+    searchBar(event).catch(error => console.error('Erreur lors de la recherche:', error));
+}
+
+async function searchBar () {
+    const query = searchInput.value.toLowerCase();
+    suggestionsContainer.innerHTML = '';
+    
+    if (query.length === 0) {
+        suggestionsContainer.style.display = 'none';
+        return;
+    }
+
+    // Filtrage des villes en fonction de la recherche
+    const filteredData = cities.filter(item =>
+        item.label.toLowerCase().includes(query) || item.code_postale.includes(query)
+    );
+
+    if (filteredData.length > 0) {
+        suggestionsContainer.style.display = 'block';
+        filteredData.forEach(item => {
+            var div = document.createElement('div');
+            div.className = 'suggestion-item';
+            div.textContent = `${item.label} (${item.code_postale})`;
+            div.dataset.lat = item.lat; // Utilisation de 'lat'
+            div.dataset.lng = item.long; // Utilisation de 'long'
+            div.addEventListener('click', function() {
+                var originLat = div.dataset.lat;
+                var originLng = div.dataset.lng;
+                var origin = `${originLat},${originLng}`;
+
+                // Préparation des destinations
+                var destinations = csvData
+                    .map(city => `${city.lat},${city.long}`)
+                    .join('|');
+                
+                // Clé API pour Distance Matrix API
+                //const apiKey = 'lQTbIAMxvLyqxYvmKv6DsHN0DjXBCtojha4CNkQOIgq5nFBiFQQESU3NRT31j0lb'; 
+                const apiKey = "bPQ0oykkFGiJDd9iANdxtBXvu1AjKwczfi3bctcevx3MycCvUjworn9phKIHnfz8";
+                
+                var url = `https://api.distancematrix.ai/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&key=${apiKey}`;
+                console.log("---------url----------", url);
+                // Envoyer la requête API
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("-------------data---------", data);
+                        var distanceDivs = document.querySelectorAll('.distance-div');
+                        distanceDivs.forEach(div => div.remove());
+                        var dataDistance = data.rows[0].elements;
+                        for (let index = 0; index < csvData.length; index++) {
+                            csvData[index].ville["ville"] = csvData[index].Nom
+                            var divListItem = document.getElementById(csvData[index].Nom);
+                            divListItem.dataset.distance =  dataDistance[index].distance.text;
+                            var distanceDiv = document.createElement('div');
+                            distanceDiv.className = 'distance-div';
+                            
+                            distanceDiv.innerText = dataDistance[index].distance.text;
+                            divListItem.append(distanceDiv);
+                        }
+                        var containerList = document.querySelector('.list-container');
+                        var itemsList = Array.from(containerList.querySelectorAll('.list-item'));
+            
+                        // Trier les éléments par distance
+                        itemsList.sort((a, b) => {
+                            var distanceA = parseFloat(a.dataset.distance);
+                            var distanceB = parseFloat(b.dataset.distance);
+                            return distanceA - distanceB;
+                        });
+
+                        map.setView([itemsList[0].dataset.lat, itemsList[0].dataset.long], 9);
+
+                        // Réorganiser les éléments dans le DOM
+                        itemsList.forEach(item => containerList.appendChild(item));
+
+                        // Traitez les données de la réponse ici
+                    })
+                    .catch(error => console.error('Erreur:', error));
+
+                // Mettre à jour le champ de saisie avec le texte sélectionné
+                searchInput.value = `${item.label} (${item.code_postale})`;
+                // Réinitialiser les suggestions
+                suggestionsContainer.innerHTML = '';
+                suggestionsContainer.style.display = 'none';
+            });
+            suggestionsContainer.appendChild(div);
+        });
+    } else {
+        suggestionsContainer.style.display = 'none';
+    }
+};
+
+// Cacher les suggestions quand on clique en dehors du champ de saisie
+document.addEventListener('click', function(event) {
+    if (!searchInput.contains(event.target) && !suggestionsContainer.contains(event.target)) {
+        suggestionsContainer.style.display = 'none';
+    }
+});
