@@ -77,14 +77,18 @@ if (from == "cfa"){
             var long = parseFloat(row.long);
             if (lat && long) {
                 if (from == "cma"){
-                    var buttonFiche = `<button class="boutton-voir-la-fiche-marker" onclick="window.location.href='item.html?${row.Id}/${row.Nom}'">VOIR LA FICHE</button>`
+                    var baseUrl = 'item.html';
+                    var parameter = `${encodeURIComponent(row.Id)}/${encodeURIComponent(row.Nom)}`;
+                    console.log("-----------------", row.Id, "   ",row.Nom)
+                    var buttonFiche = `<button class="boutton-voir-la-fiche-marker" onclick="window.location.href='${baseUrl}?${parameter}'">VOIR LA FICHE</button>`;
+                    //var buttonFiche = `<button class="boutton-voir-la-fiche-marker" onclick="window.location.href='item.html?${encodeURIComponent(row.Id)}/${encodeURIComponent(row.Nom)}'">VOIR LA FICHE</button>`
                 }else if ( from == "cfa"){
                     var buttonFiche = `
                     <button class="boutton-voir-la-fiche" onclick="window.open('${row.site}', '_blank');">
         VOIR LE SITE
     </button>`;
                 }
-                    
+                    console.log(buttonFiche);
                     marker[row.id] = L.marker([lat, long], { icon: customIcon }).addTo(map)
                     .bindPopup(
                         `<div class="popupMarker">
@@ -158,7 +162,6 @@ if (divItemLength > 0){
                     viewButton.textContent = 'VOIR LA FICHE';
                     viewButton.className="boutton-voir-la-fiche";
                     viewButton.addEventListener('click', function() {
-                        
                         var baseUrl = 'item.html';  // Remplacez par l'URL de votre page cible
                         var parameter = `${row.Id}/${row.Nom}`;
                         const newUrl = `${baseUrl}?${parameter}`;
@@ -218,7 +221,6 @@ function getUrlParameters() {
 
 
 async function processData(id, nom) {
-    console.log("id", id,"nom", nom)
     var csv;
     if (nom.includes("CMA")) {
         csv = "data/cma.csv";
