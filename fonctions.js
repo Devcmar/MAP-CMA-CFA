@@ -183,10 +183,20 @@ if (divItemLength > 0){
                 var directionButton = document.createElement('a');
                 directionButton.className="boutton-itineraire";
                 directionButton.textContent = 'Itinéraire';
-                directionButton.href = `https://www.google.com/maps/dir/My+location/${row.lat},${row.long}`;
-                directionButton.target = "_blank";
+
+/*                 directionButton.href = `https://www.google.com/maps/dir/My+location/${row.lat},${row.long}`;
+                directionButton.target = "_blank"; */
+
+                var lat = encodeURIComponent(row.lat);  // Latitude de la destination
+                var long = encodeURIComponent(row.long); // Longitude de la destination
+                directionButton.href = `https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=${lat},${long}`;
+                directionButton.target = "_blank";  // Ouvre le lien dans un nouvel onglet
+
                 buttonsDiv.appendChild(directionButton);
                 righttItemDiv.appendChild(buttonsDiv);
+
+
+                
         }); 
     })
     .catch(error => console.error('Error loading CSV:', error));
