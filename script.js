@@ -53,8 +53,7 @@ addDataToMap("cma");
     var dataCity = loadCSVSync(csvCity);
     cities = parseCSV(dataCity);
 
-    // Écouteur d'événements pour le champ de saisie
-    
-
-    //searchIcon.addEventListener('click',searchBar );
+    map.on('popupclose', function() {
+        document.getElementsByClassName('toggle-switch')[0].classList.remove('hidden');
+    });
 

@@ -76,9 +76,8 @@ if (from == "cfa"){
             var lat = parseFloat(row.lat);
             var long = parseFloat(row.long);
             if (lat && long) {
-
                 if (from == "cma"){
-                    var buttonFiche = `<button class="boutton-voir-la-fiche-marker" onclick="window.location.href='item.html?${row.Id}/${row.Nom}'"> VOIR LA FICHE</button>`
+                    var buttonFiche = `<button class="boutton-voir-la-fiche-marker" onclick="window.location.href='item.html?${row.Id}/${row.Nom}'">VOIR LA FICHE</button>`
                 }else if ( from == "cfa"){
                     var buttonFiche = `
                     <button class="boutton-voir-la-fiche" onclick="window.open('${row.site}', '_blank');">
@@ -91,14 +90,17 @@ if (from == "cfa"){
                         `<div class="popupMarker">
                         <h3 class="h3-popup" >${row.Nom }</h3>
                         <div class= "div-item-marker" ><img src="logo/location-black.svg" class="img-marker" alt=""><p class= "p-marker">${row.Adresse }</p></div>
-                        <div class= "div-item-marker"><img src="logo/telephone.svg" class="img-marker" alt=""><p class= "p-marker">${row.Telephone }</p></div>
+                        <div class= "div-item-marker"><img src="logo/telephone.svg" class="img-marker" alt=""><a class="call-link" href="tel:${row.Telephone}">${row.Telephone}</a></div>
                         <div class= "div-item-marker"><img src="logo/enveloppe.svg" class="img-marker" alt=""><a class="ancre-black" href="https://www.cmar-paca.fr/contact" >Nous contacter</a></div>
                         <div class= "div-item-marker">` +
                         buttonFiche +
                         `<a class="boutton-itineraire" target= "_blank" href="https://www.google.com/maps/dir/My+location/${row.lat},${row.long}"> Itinéraire</a>
                         </div>
                         </div>`
-                );
+                )
+                .on('click', function() {
+                    document.getElementsByClassName('toggle-switch')[0].classList.add('hidden');
+                });;
                     markers.push(marker[row.id]);
             }
         }); 
@@ -116,8 +118,8 @@ if (divItemLength > 0){
                 itemDiv.dataset.long = row.long;
                 itemDiv.id = row.Nom;
                 itemDiv.onclick = function(){
-                    console.log(markers[row.Id])
                     markers[row.Id].openPopup();
+                    document.getElementsByClassName('toggle-switch')[0].classList.add('hidden');
                 }
             
                 var leftItemDiv = document.createElement('div');
@@ -156,6 +158,7 @@ if (divItemLength > 0){
                     viewButton.textContent = 'VOIR LA FICHE';
                     viewButton.className="boutton-voir-la-fiche";
                     viewButton.addEventListener('click', function() {
+                        
                         var baseUrl = 'item.html';  // Remplacez par l'URL de votre page cible
                         var parameter = `${row.Id}/${row.Nom}`;
                         const newUrl = `${baseUrl}?${parameter}`;
@@ -272,9 +275,16 @@ async function initializeMap(id, nom) {
         var imgContact = document.createElement('img')
         imgContact.className = "imgInfo";
         imgContact.src = 'logo/info.svg';
+
         divLogoContact[0].append(imgContact);
-        var textContact = document.getElementsByClassName('text-contacts');
-        textContact[0].innerHTML = data.Telephone;
+
+        var textContact = document.getElementsByClassName('text-contacts')[0];
+
+        //var textContact = document.getElementsByClassName('text-contacts');
+
+        textContact.innerHTML = `<a class="call-link" href="tel:${data.Telephone}  ">${data.Telephone}</a>`;
+
+        //textContact[0].innerHTML = data.Telephone;
 
         var divLogoAdresse = document.getElementsByClassName('logo-adresse')
         var imgAdresse = document.createElement('img')
@@ -393,3 +403,7 @@ document.addEventListener('click', function(event) {
         suggestionsContainer.style.display = 'none';
     }
 });
+
+function goBack() {
+    window.history.back();
+}

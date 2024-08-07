@@ -37,12 +37,10 @@ body {
 
 
 h1{
-
-  font-family: 'Roboto Slab',Arial,sans-serif;
-  color: #0f3250;
-  font-size: 2.6rem;
-  font-weight: 500;
-}
+    font-family: 'Roboto Slab',Arial,sans-serif;
+    color: #0f3250;
+    font-size: 2rem;
+  }
 
 p{
     font-size: 1rem;
@@ -195,11 +193,14 @@ button:hover {
 
 
 .img-marker{
-    height: 20px;
+    height: 22px;
     margin-left: 5px;
     margin-right: 5px;
 }
 
+.hidden {
+    display: none !important; /* Classe pour masquer un élément */
+}
 
 .toggle-switch {
     position: absolute;
@@ -208,7 +209,7 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 150px; /* La largeur totale du toggle switch */
+    width: 180px; /* La largeur totale du toggle switch */
     height: 40px;
     background-color: white;
     border-radius: 40px;
@@ -216,8 +217,8 @@ button:hover {
     cursor: pointer;
     z-index: 1000;
     font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
-  font-size: 12px;
-  font-size: 1rem;
+  font-size: 10px;
+  font-size: 0.8rem;
   line-height: 1.5;
 }
 
@@ -428,6 +429,8 @@ box-shadow: none; /* Supprimer toute ombre qui pourrait apparaître */
     padding: 10px;
     cursor: pointer; /* Change le curseur en pointeur pour indiquer que c'est cliquable */
     border-bottom: 1px solid #ddd; /* Ajoute une bordure entre les éléments */
+    font-family: 'Montserrat';
+    font-size: 13px;
 }
 
 /* Style pour l'effet de survol */
@@ -437,7 +440,10 @@ box-shadow: none; /* Supprimer toute ombre qui pourrait apparaître */
 }
 
 .distance-div {
-    color: #5c757c
+    color: #5c757c;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Montserrat';
 }
 
 .div-item-marker {
@@ -459,4 +465,14 @@ box-shadow: none; /* Supprimer toute ombre qui pourrait apparaître */
 
 .h3-popup{
     font-size: 15px;
+}
+
+.call-link {
+    color: black !important; /* Changez la couleur du texte */
+    text-decoration: none; /* Supprime le soulignement */
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+}
+
+.call-link:hover {
+    text-decoration: underline; /* Ajoute un soulignement lors du survol (facultatif) */
 }

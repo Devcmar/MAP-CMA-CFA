@@ -6,15 +6,16 @@
     margin-top: 10%;
 }
 
-.title-card{
-  color: #e94b3c;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
 
-.container-item{
 
-}
+h1{
+    font-family: 'Roboto Slab',Arial,sans-serif;
+    color: #0f3250;
+    font-size: 2rem;
+
+  }
+
+
 
 .card {
     width: 100%;
@@ -30,6 +31,9 @@
     width: 80vw;
     max-width: 1000px;
     min-width: 600px;
+    min-height: 280px;
+box-sizing: border-box;
+word-wrap: break-word;
    }
 
 .card-right {
@@ -43,6 +47,7 @@ border-top-right-radius: 50px;
     height: 100%;
 width: 50%;
 border-bottom-left-radius: 50px;
+
 }
 
 
@@ -205,3 +210,48 @@ border-bottom-left-radius: 50px;
         }
 
 } 
+.call-link {
+    color: white; /* Changez la couleur du texte */
+    text-decoration: none; /* Supprime le soulignement */
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+}
+
+.call-link:hover {
+    text-decoration: underline; /* Ajoute un soulignement lors du survol (facultatif) */
+}
+
+
+.flex-return {
+    display: flex;
+    justify-content: space-between; /* Aligne le titre et le bouton aux extrémités opposées */
+    align-items: center; /* Aligne verticalement le titre et le bouton */
+    padding: 10px 20px; /* Ajoute un peu de padding autour du conteneur */
+}
+
+
+.return {
+    padding: 8px 16px; /* Padding autour du texte du bouton */
+    font-size: 16px; /* Taille de la police du bouton */
+    color: #fff; /* Couleur du texte du bouton */
+    background-color: #0f3250;; /* Couleur de fond du bouton */
+    border: none; /* Supprime les bordures par défaut du bouton */
+    border-radius: 4px; /* Bordures arrondies du bouton */
+    cursor: pointer; /* Change le curseur pour indiquer que le bouton est cliquable */
+    transition: background-color 0.3s; /* Animation de la couleur de fond lors du survol */
+}
+
+.return:hover {
+    background-color: #0056b3; /* Couleur de fond du bouton lors du survol */
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 768px) {
+    .flex-return {
+        flex-direction: column; /* Empile le titre et le bouton verticalement */
+        align-items: flex-start; /* Aligne le titre et le bouton à gauche */
+    }
+
+    .return {
+        margin-top: 10px; /* Ajoute un espace au-dessus du bouton lorsqu'il est empilé sous le titre */
+    }
+}
