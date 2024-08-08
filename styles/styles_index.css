@@ -1,379 +1,374 @@
 body {
-            margin: 0;
-            justify-content: flex-end; /* Aligne les éléments à droite */
-            align-items: center; /* Centre les éléments verticalement */
-            height: 100vh;}
-
- .container {
-    display: flex;
-    height: 100vh; /* Hauteur de l'écran */
-  background-color: #e7f1f4; 
-  width: 100%;
-}
-
-.container h1 {
-    margin: 0 auto; /* Centre le titre lui-même */
-    /* Ajoutez d'autres styles au besoin */
-}
-
-.left-div, .right-div {
-    width: 50vw; /* 50% de la largeur de l'écran */
-    height: 100%; /* 100% de la hauteur du conteneur parent */
-    display: flex;
-    justify-content: center; /* Centre le contenu horizontalement */
-    align-items: center; /* Centre le contenu verticalement */
-}
-
-.left-div {
-    padding-left: 0%; /* Espacement depuis le bord gauche de l'écran */
-    background-color: #e7f1f4;
-    overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
-    display: block;
-}
-
-.right-div {
-    margin-right: 0%; /* Espacement depuis le bord droit de l'écran */
-}
-
-
-h1{
-    font-family: 'Montserrat',Arial,sans-serif;
-    color: #0f3250;
-    font-size: 2rem;
-
-  }
-
-p{
-    font-size: 1rem;
-  font-family: Arial,sans-serif;
-  color: #0f3250;
-  margin-top : 10px;
-  margin-bottom : 10px;
-  margin-right : 10px;
-}
-
-h3{
-  font-family: 'Montserrat',Arial,sans-serif;
-  color: #0f3250;
-  font-size: 1.3rem;
-  font-weight: 550;
-  line-height: 1;
-  margin-bottom : 10px;
-  margin-top : 0px
-}
-
-.title-item{
-    
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    text-align: left;
-    width: 55%;
-  margin-left: 40%;
-  margin-right: 5%;
-
-}
-
-.list-container {
-    width: 55%; /* Adjust width as needed */
-    margin-left: 40%;
-    margin-right: 5%;
-}
-
-.list-item {
-    background-color: #f0f0f0; /* Background color for list items */
-    border-top-left-radius: 3rem;
-    border-bottom-right-radius: 3rem;
-    padding: 10px; /* Padding inside each list item */
-    margin-bottom: 20px; /* Space between list items */
-    width: 100%; /* Ensure list items take full width of container */
-    max-width: 500px;
-    text-align: center; /* Center text inside list items */
-    cursor: pointer;
-    background-color: #fff;
-    font-size: 1.8rem;
-  overflow: hidden;
-  border: 1px solid #e7f1f4;
-  display: flex; /* Utilise flexbox pour disposer les enfants */
-  height: 100%; /* Prend toute la hauteur de la fenêtre */
-
-}
-
-.list-item:hover{
-    border: 1px solid #91b6c0;
-}
-
-        /* Styles pour la div de gauche */
-        .left-div-list-item  {
-            width: 15%; /* 1/4 de la largeur */
-            padding: 10px; /* Espacement intérieur */
-            box-sizing: border-box; /* Inclut le padding dans la largeur */
-        }
-
-        /* Styles pour la div de droite */
-        .right-div-list-item {
-            width: 85%; /* 3/4 de la largeur */
-            padding: 10px; /* Espacement intérieur */
-            box-sizing: border-box; /* Inclut le padding dans la largeur */
-            text-align: left;
-        }
-
-button {
-    margin: 5px; /* Space between buttons */
-    padding: 10px 20px; /* Padding inside buttons */
-    border: none; /* No border for buttons */
-    background-color: #007BFF; /* Button background color */
-    color: white; /* Button text color */
-    cursor: pointer; /* Pointer cursor on hover */
-    border-radius: 5px; /* Rounded corners for buttons */
-}
-
-button:hover {
-    background-color: #0056b3; /* Darker background on hover */
-}
-
-.boutton-voir-la-fiche {
-    background-color: white; 
-    color: #e94b3c;
-    border: 1px solid #e94b3c;
-    border-radius: 25px; 
-    padding: 10px 20px; 
-    font-family: 'Montserrat', sans-serif; 
-    font-size: 14px; 
-    font-weight: 600;
-    cursor: pointer; 
-    transition: background-color 0.3s, color 0.3s; 
-    margin-left:0px;
-}
-
-.boutton-voir-la-fiche-marker {
-    background-color: #e94b3c; 
-    color: white;
-    border: 1px solid #e94b3c;
-    border-radius: 25px; 
-    padding: 10px 20px; 
-    font-family: 'Montserrat', sans-serif; 
-    font-size: 14px; 
-    font-weight: 600;
-    cursor: pointer; 
-    transition: background-color 0.3s, color 0.3s; 
-    margin-left:0px;
-}
-
-.boutton-voir-la-fiche-marker:hover{
-    background-color: rgb(180, 0, 0);
-}
-
-.boutton-voir-la-fiche:hover {
-    background-color: rgb(180, 0, 0); /* Fond rouge au survol */
-    color: white; /* Écriture blanche au survol */
-    border: 1px solid rgb(180, 0, 0);;
-}
-
-.boutton-itineraire {
-    background-color: white; 
-    color: #e94b3c !important;
-    font-family: 'Montserrat', sans-serif; 
-    font-size: 16px; 
-    font-weight: 600;
-    text-decoration: none;
-    margin-left: 20px;
-}  
-
-.non-selectable {
-    user-select: none; /* Standard pour les navigateurs modernes */
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer et Edge */
-}
-
-.boutton-itineraire:hover {
-    color: white; /* Écriture blanche au survol */
-    background-color: white; 
-    color: rgb(180, 0, 0);
-}
-
-
-.img-marker{
-    height: 22px;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.hidden {
-    display: none !important; /* Classe pour masquer un élément */
-}
-
-.toggle-switch {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 180px; /* La largeur totale du toggle switch */
-    height: 40px;
-    background-color: white;
-    border-radius: 40px;
-    overflow: hidden;
-    cursor: pointer;
-    z-index: 1000;
-    font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
-  font-size: 10px;
-  font-size: 0.8rem;
-  line-height: 1.5;
-}
-
-.toggle-switch .toggle-option {
-    width: 100px; /* Largeur fixe pour chaque option */
-    display: flex;
-    align-items: center; /* Centrer verticalement */
-    justify-content: center; /* Centrer horizontalement */
-    height: 100%;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.toggle-switch .toggle-option.cma {
-    background-color: #e94b3c;
-    color: white;
-}
-
-.toggle-switch .toggle-option.cfa {
-    background-color: white;
-    color: #e94b3c;
-}
-
-.toggle-switch.active .toggle-option.cma {
-    background-color: white;
-    color: #e94b3c;
-}
-
-.toggle-switch.active .toggle-option.cfa {
-    background-color: #0f3250;
-    color: white;
-}
-
-.img-marker-list {
-    width: 40px; 
-    height: 40px; 
-}
-
-
-body {
     margin: 0;
-    display: flex;
     justify-content: flex-end; /* Aligne les éléments à droite */
     align-items: center; /* Centre les éléments verticalement */
     height: 100vh;}
 
-    @media (max-width: 720px) {
-        .container {
-            flex-direction: column; /* Aligne les éléments verticalement */
-         
-        }
-
-        .left-div{
-            order: 2;
-            width: 100% !important;
-            margin : 0% !important;
-            padding : 0% !important;
-
-        }
-
-        .right-div{
-            order: 1;
-            width: 100% !important;
-            margin-right: 0 !important;
-            margin : 0% !important;
-            padding : 0% !important;
-        }
-
-        .toggle-switch {
-            position: absolute;
-            top: 35%;
-            right: 5%;
-        }
-
-        .list-container {
-            margin-left: 2%;
-            margin-right: 2%;
-            width: 100% !important;
-          }
-
-          .list-item {
-            max-width: 95% !important;
-            box-sizing: border-box;
-
-          }
-          .title-item {
-            margin-left: 2%;
-           
-          }
-          .right-div-list-item {
-            padding: 0px;
-          }
-          .left-div-list-item {
-            width: 5%;
-            padding: 0px !important;
-          }
-
-          .boutton-itineraire {
-            padding: 0px !important;
-          }
-
-          .img-marker-list {
-            width: 0px; 
-            height: 0px; 
-        }
-    }
-
-    @media (min-width: 1000px) and (max-width: 1440px) {
-    .list-container {
-        width: 65%; /* Adjust width as needed */
-        margin-left: 20%;
-        margin-right: 5%;
-    }
-    .title-item {
-        width: 65%; /* Adjust width as needed */
-        margin-left: 20%;
-        margin-right: 5%;
-    }
+.container {
+display: flex;
+height: 100vh; /* Hauteur de l'écran */
+background-color: #e7f1f4; 
+width: 100%;
 }
 
-    @media (min-width: 720px) and (max-width: 1000px) {
-        .list-container {
-            width: 85% !important; /* Adjust width as needed */
-            margin-left: 2% !important;
-            margin-right: 2% !important;
-        }
-        .title-item {
-            width: 85% !important; /* Adjust width as needed */
-            margin-left: 2% !important;
-            margin-right: 2% !important;
-        }
+.container h1 {
+margin: 0 auto; /* Centre le titre lui-même */
+/* Ajoutez d'autres styles au besoin */
+}
+
+.left-div, .right-div {
+width: 50vw; /* 50% de la largeur de l'écran */
+height: 100%; /* 100% de la hauteur du conteneur parent */
+display: flex;
+justify-content: center; /* Centre le contenu horizontalement */
+align-items: center; /* Centre le contenu verticalement */
+}
+
+.left-div {
+padding-left: 0%; /* Espacement depuis le bord gauche de l'écran */
+background-color: #e7f1f4;
+overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
+display: block;
+}
+
+.right-div {
+margin-right: 0%; /* Espacement depuis le bord droit de l'écran */
+}
+
+
+h1{
+font-family: 'Montserrat',Arial,sans-serif;
+color: #0f3250;
+font-size: 2rem;
+
+}
+
+p{
+font-size: 1rem;
+font-family: Arial,sans-serif;
+color: #0f3250;
+margin-top : 10px;
+margin-bottom : 10px;
+margin-right : 10px;
+}
+
+h3{
+font-family: 'Montserrat',Arial,sans-serif;
+color: #0f3250;
+font-size: 1.3rem;
+font-weight: 550;
+line-height: 1;
+margin-bottom : 10px;
+margin-top : 0px
+}
+
+.title-item{
+margin-top: 3rem;
+margin-bottom: 1rem;
+text-align: left;
+width: 55%;
+margin: 0 auto;
+
+}
+
+.list-container {
+width: 55%; /* Adjust width as needed */
+margin: 0 auto;
+}
+
+.list-item {
+background-color: #f0f0f0; /* Background color for list items */
+border-top-left-radius: 3rem;
+border-bottom-right-radius: 3rem;
+padding: 10px; /* Padding inside each list item */
+margin-bottom: 20px; /* Space between list items */
+width: 100%; /* Ensure list items take full width of container */
+max-width: 500px;
+text-align: center; /* Center text inside list items */
+cursor: pointer;
+background-color: #fff;
+font-size: 1.8rem;
+overflow: hidden;
+border: 1px solid #e7f1f4;
+display: flex; /* Utilise flexbox pour disposer les enfants */
+height: 100%; /* Prend toute la hauteur de la fenêtre */
+
+}
+
+.list-item:hover{
+border: 1px solid #91b6c0;
+}
+
+/* Styles pour la div de gauche */
+.left-div-list-item  {
+    width: 15%; /* 1/4 de la largeur */
+    padding: 10px; /* Espacement intérieur */
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+}
+
+/* Styles pour la div de droite */
+.right-div-list-item {
+    width: 85%; /* 3/4 de la largeur */
+    padding: 10px; /* Espacement intérieur */
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+    text-align: left;
+}
+
+button {
+margin: 5px; /* Space between buttons */
+padding: 10px 20px; /* Padding inside buttons */
+border: none; /* No border for buttons */
+background-color: #007BFF; /* Button background color */
+color: white; /* Button text color */
+cursor: pointer; /* Pointer cursor on hover */
+border-radius: 5px; /* Rounded corners for buttons */
+}
+
+button:hover {
+background-color: #0056b3; /* Darker background on hover */
+}
+
+.boutton-voir-la-fiche {
+background-color: white; 
+color: #e94b3c;
+border: 1px solid #e94b3c;
+border-radius: 25px; 
+padding: 10px 20px; 
+font-family: 'Montserrat', sans-serif; 
+font-size: 14px; 
+font-weight: 600;
+cursor: pointer; 
+transition: background-color 0.3s, color 0.3s; 
+margin-left:0px;
+}
+
+.boutton-voir-la-fiche-marker {
+background-color: #e94b3c; 
+color: white;
+border: 1px solid #e94b3c;
+border-radius: 25px; 
+padding: 10px 20px; 
+font-family: 'Montserrat', sans-serif; 
+font-size: 14px; 
+font-weight: 600;
+cursor: pointer; 
+transition: background-color 0.3s, color 0.3s; 
+margin-left:0px;
+}
+
+.boutton-voir-la-fiche-marker:hover{
+background-color: rgb(180, 0, 0);
+}
+
+.boutton-voir-la-fiche:hover {
+background-color: rgb(180, 0, 0); /* Fond rouge au survol */
+color: white; /* Écriture blanche au survol */
+border: 1px solid rgb(180, 0, 0);;
+}
+
+.boutton-itineraire {
+background-color: white; 
+color: #e94b3c !important;
+font-family: 'Montserrat', sans-serif; 
+font-size: 16px; 
+font-weight: 600;
+text-decoration: none;
+margin-left: 20px;
+}  
+
+.non-selectable {
+user-select: none; /* Standard pour les navigateurs modernes */
+-webkit-user-select: none; /* Safari */
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* Internet Explorer et Edge */
+}
+
+.boutton-itineraire:hover {
+color: white; /* Écriture blanche au survol */
+background-color: white; 
+color: rgb(180, 0, 0);
+}
+
+
+.img-marker{
+height: 22px;
+margin-left: 5px;
+margin-right: 5px;
+}
+
+.hidden {
+display: none !important; /* Classe pour masquer un élément */
+}
+
+.toggle-switch {
+position: absolute;
+top: 5%;
+right: 5%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 180px; /* La largeur totale du toggle switch */
+height: 40px;
+background-color: white;
+border-radius: 40px;
+overflow: hidden;
+cursor: pointer;
+z-index: 1000;
+font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
+font-size: 10px;
+font-size: 0.8rem;
+line-height: 1.5;
+}
+
+.toggle-switch .toggle-option {
+width: 100px; /* Largeur fixe pour chaque option */
+display: flex;
+align-items: center; /* Centrer verticalement */
+justify-content: center; /* Centrer horizontalement */
+height: 100%;
+transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-switch .toggle-option.cma {
+background-color: #e94b3c;
+color: white;
+}
+
+.toggle-switch .toggle-option.cfa {
+background-color: white;
+color: #e94b3c;
+}
+
+.toggle-switch.active .toggle-option.cma {
+background-color: white;
+color: #e94b3c;
+}
+
+.toggle-switch.active .toggle-option.cfa {
+background-color: #0f3250;
+color: white;
+}
+
+.img-marker-list {
+width: 40px; 
+height: 40px; 
+}
+
+
+body {
+margin: 0;
+display: flex;
+justify-content: flex-end; /* Aligne les éléments à droite */
+align-items: center; /* Centre les éléments verticalement */
+height: 100vh;}
+
+@media (max-width: 720px) {
+.container {
+    flex-direction: column; /* Aligne les éléments verticalement */
+ 
+}
+
+.left-div{
+    order: 2;
+    width: 100% !important;
+    margin : 0% !important;
+    padding : 0% !important;
+
+}
+
+.right-div{
+    order: 1;
+    width: 100% !important;
+    margin-right: 0 !important;
+    margin : 0% !important;
+    padding : 0% !important;
+}
+
+.toggle-switch {
+    position: absolute;
+    top: 35%;
+    right: 5%;
+}
+
+.list-container {
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 100% !important;
+  }
+
+  .list-item {
+    max-width: 95% !important;
+    box-sizing: border-box;
+
+  }
+  .title-item {
+    margin-left: 2%;
+   
+  }
+  .right-div-list-item {
+    padding: 0px;
+  }
+  .left-div-list-item {
+    width: 5%;
+    padding: 0px !important;
+  }
+
+  .boutton-itineraire {
+    padding: 0px !important;
+  }
+
+  .img-marker-list {
+    width: 0px; 
+    height: 0px; 
+}
+}
+
+@media (min-width: 1000px) and (max-width: 1440px) {
+.list-container {
+width: 65%; /* Adjust width as needed */
+margin-left: 20%;
+margin-right: 5%;
+}
+.title-item {
+width: 65%; /* Adjust width as needed */
+margin-left: 20%;
+margin-right: 5%;
+}
+}
+
+@media (min-width: 720px) and (max-width: 1000px) {
+.list-container {
+    width: 85% !important; /* Adjust width as needed */
+    margin-left: 2% !important;
+    margin-right: 2% !important;
+}
+.title-item {
+    width: 85% !important; /* Adjust width as needed */
+    margin-left: 2% !important;
+    margin-right: 2% !important;
+}
 }
 
 .search-container {
-    position: relative;
-    display: flex;
-    align-items: center;
+position: relative;
+display: flex;
+align-items: center;
 }
 
 .search-input-div {
-  
-    border-radius: 50px; /* Arrondir les coins du champ de recherche */
-    font-size: 16px;
-    width: auto;
-    outline: none;
-    width: fit-content;
-  margin-left: 40%;
-  margin-right: 5%;
-  margin-bottom: 20px;
-  background-color: #fff;
-  border: 1px solid #fff;
+border-radius: 50px; /* Arrondir les coins du champ de recherche */
+font-size: 16px;
+width: auto;
+outline: none;
+width: fit-content;
+margin: 0 auto;
+margin-bottom: 20px;
+background-color: #fff;
+border: 1px solid #fff;
 }
 
 .search-input-div:hover {
-    border: 1px solid #91b6c0;
+border: 1px solid #91b6c0;
 }
 
 
@@ -397,83 +392,83 @@ box-shadow: none; /* Supprimer toute ombre qui pourrait apparaître */
 }
 
 .input-bar:focus {
-    border-color: #fff; /* Couleur de la bordure lorsque le champ est focalisé */
-    box-shadow: none; /* Supprimer l'ombre portée lorsque le champ est focalisé */
+border-color: #fff; /* Couleur de la bordure lorsque le champ est focalisé */
+box-shadow: none; /* Supprimer l'ombre portée lorsque le champ est focalisé */
 }
 
 .search-icon {
-    font-size: 18px;
-    cursor: pointer;
-    margin-right: 10px;
-    cursor: pointer;
+font-size: 18px;
+cursor: pointer;
+margin-right: 10px;
+cursor: pointer;
 }
 
 .suggestions-container {
-    border: 1px solid #91b6c0;
-    position: block;
-    width: 50%;
-    background-color: white;
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 10;
-    display: none; /* Initialement caché */
-    margin-left: 40%;
-    margin-right: 5%;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    padding: 5px;
+border: 1px solid #91b6c0;
+position: block;
+width: 50%;
+background-color: white;
+max-height: 200px;
+overflow-y: auto;
+z-index: 10;
+display: none; /* Initialement caché */
+margin-left: 40%;
+margin-right: 5%;
+margin-bottom: 20px;
+border-radius: 5px;
+padding: 5px;
 }
 
 
 /* Styles pour chaque élément de suggestion */
 .suggestion-item {
-    padding: 10px;
-    cursor: pointer; /* Change le curseur en pointeur pour indiquer que c'est cliquable */
-    border-bottom: 1px solid #ddd; /* Ajoute une bordure entre les éléments */
-    font-family: 'Montserrat';
-    font-size: 13px;
+padding: 10px;
+cursor: pointer; /* Change le curseur en pointeur pour indiquer que c'est cliquable */
+border-bottom: 1px solid #ddd; /* Ajoute une bordure entre les éléments */
+font-family: 'Montserrat';
+font-size: 13px;
 }
 
 /* Style pour l'effet de survol */
 .suggestion-item:hover {
-    background-color: #f0f0f0; /* Change la couleur de fond au survol */
-    color: #333; /* Change la couleur du texte au survol */
+background-color: #f0f0f0; /* Change la couleur de fond au survol */
+color: #333; /* Change la couleur du texte au survol */
 }
 
 .distance-div {
-    color: #5c757c;
-    font-size: 16px;
-    font-weight: 600;
-    font-family: 'Montserrat';
+color: #5c757c;
+font-size: 16px;
+font-weight: 600;
+font-family: 'Montserrat';
 }
 
 .div-item-marker {
-    display: flex;
-    align-items: center;
-    margin: 5px;
+display: flex;
+align-items: center;
+margin: 5px;
 }
 
 .p-marker {
-    line-height: 20px;
-    font-size: 14px;
-    margin-top: 5px !important; /* Aucun espace au-dessus */
-    margin-bottom: 5px !important; /* Moins d'espace en dessous */
+line-height: 20px;
+font-size: 14px;
+margin-top: 5px !important; /* Aucun espace au-dessus */
+margin-bottom: 5px !important; /* Moins d'espace en dessous */
 }
 
 .ancre-black {
-    color: black !important;
+color: black !important;
 }
 
 .h3-popup{
-    font-size: 15px;
+font-size: 15px;
 }
 
 .call-link {
-    color: black !important; /* Changez la couleur du texte */
-    text-decoration: none; /* Supprime le soulignement */
-    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+color: black !important; /* Changez la couleur du texte */
+text-decoration: none; /* Supprime le soulignement */
+cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
 }
 
 .call-link:hover {
-    text-decoration: underline; /* Ajoute un soulignement lors du survol (facultatif) */
+text-decoration: underline; /* Ajoute un soulignement lors du survol (facultatif) */
 }
