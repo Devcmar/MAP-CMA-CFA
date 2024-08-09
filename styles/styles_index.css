@@ -389,6 +389,45 @@ cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
 text-decoration: underline; /* Ajoute un soulignement lors du survol (facultatif) */
 }
 
+@media screen and (max-width: 1440px) {
+    .search-input-div {
+        margin-left: 20% !important;
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1440px) {
+    .list-container {
+    width: 65%;
+    }
+    .title-item {
+    width: 65%; /* Adjust width as needed */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    }
+}
+
+@media screen and (max-width: 1290px) {
+    .search-input-div {
+        margin-left: 7% !important;
+    }
+}
+
+@media screen and (min-width: 720px) and (max-width: 1000px) {
+    .list-container {
+        width: 85% !important; /* Adjust width as needed */
+        margin-left: 2% !important;
+        margin-right: 2% !important;
+    }
+    .title-item {
+        width: 85% !important; /* Adjust width as needed */
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    .search-input-div {
+        margin-left: 7% !important;
+    }
+}
+
 @media screen and (max-width: 720px) {
     .container {
         flex-direction: column; /* Aligne les éléments verticalement */
@@ -446,41 +485,5 @@ text-decoration: underline; /* Ajoute un soulignement lors du survol (facultatif
       .img-marker-list {
         width: 0px; 
         height: 0px; 
-    }
-}
-    
-@media screen and (max-width: 1732px) {
-    .search-input-div {
-        margin-left: 20% !important;
-    }
-}
-
-@media screen and (min-width: 1000px) and (max-width: 1440px) {
-    .list-container {
-    width: 65%;
-    }
-    .title-item {
-    width: 65%; /* Adjust width as needed */
-    margin-left: auto !important;
-    margin-right: auto !important;
-    }
-}
-
-@media screen and (max-width: 1290px) {
-    .search-input-div {
-        margin-left: 7% !important;
-    }
-}
-
-@media screen and (min-width: 720px) and (max-width: 1000px) {
-    .list-container {
-        width: 85% !important; /* Adjust width as needed */
-        margin-left: 2% !important;
-        margin-right: 2% !important;
-    }
-    .title-item {
-        width: 85% !important; /* Adjust width as needed */
-        margin-left: auto !important;
-        margin-right: auto !important;
     }
 }
