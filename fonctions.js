@@ -77,12 +77,16 @@ if (from == "cfa"){
             var long = parseFloat(row.long);
             if (lat && long) {
                 if (from == "cma"){
+                    var nousContcater = "https://www.cmar-paca.fr/contact";
                     var baseUrl = 'item.html';
                     var parameter = `${encodeURIComponent(row.Id)}/${encodeURIComponent(row.Nom)}`;
                     console.log("-----------------", row.Id, "   ",row.Nom)
                     var buttonFiche = `<button class="boutton-voir-la-fiche-marker" onclick="window.location.href='${baseUrl}?${parameter}'">VOIR LA FICHE</button>`;
                     //var buttonFiche = `<button class="boutton-voir-la-fiche-marker" onclick="window.location.href='item.html?${encodeURIComponent(row.Id)}/${encodeURIComponent(row.Nom)}'">VOIR LA FICHE</button>`
                 }else if ( from == "cfa"){
+                    
+                    var nousContcater = "https://www.urma-paca.fr/contactez-nous";
+
                     var buttonFiche = `
                     <button class="boutton-voir-la-fiche" onclick="window.open('${row.site}', '_blank');">
         VOIR LE SITE
@@ -95,7 +99,7 @@ if (from == "cfa"){
                         <h3 class="h3-popup" >${row.Nom }</h3>
                         <div class= "div-item-marker" ><img src="logo/location-black.svg" class="img-marker" alt=""><p class= "p-marker">${row.Adresse }</p></div>
                         <div class= "div-item-marker"><img src="logo/telephone.svg" class="img-marker" alt=""><a class="call-link" href="tel:${row.Telephone}">${row.Telephone}</a></div>
-                        <div class= "div-item-marker"><img src="logo/enveloppe.svg" class="img-marker" alt=""><a class="ancre-black" target="_blank" href="https://www.cmar-paca.fr/contact" >Nous contacter</a></div>
+                        <div class= "div-item-marker"><img src="logo/enveloppe.svg" class="img-marker" alt=""><a class="ancre-black" target="_blank" href=${nousContcater} >Nous contacter</a></div>
                         <div class= "div-item-marker">` +
                         buttonFiche +
                         `<a class="boutton-itineraire" target= "_blank" href="https://www.google.com/maps/dir/My+location/${row.lat},${row.long}"> Itinéraire</a>
