@@ -164,7 +164,7 @@ border-top-right-radius: 50px;
         
         .card-left {
             background-color: #0f3250;
-            height: 70%;
+            height: fit-content;
         width: 100%;
         border-bottom-left-radius: 0px;
         border-top-right-radius: 50px;
