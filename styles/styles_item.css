@@ -29,7 +29,7 @@ h1{
     width: 80vw;
     max-width: 1000px;
     min-width: 600px;
-    min-height: 310px;
+    min-height: 280px;
 box-sizing: border-box;
 word-wrap: break-word;
    }
@@ -171,22 +171,22 @@ border-top-right-radius: 50px;
         }
 
         .contacts{
-            background-color: #3d5a6f;
+            background-color: #f2f4f7;
             display: flex;
             border-radius: 20px;
-            color: white;
+            color: #0f3250;
             font-family: 'Montserrat',Arial,sans-serif;
             font-weight: 500;
             padding: 2px;
             font-size: 10px;
             margin:5px;
-            }
+        }
             
         .adresse {
             display: flex;
             margin: 2px;
             border-radius: 10px;
-            color: white;
+            color: #0f3250;
             font-family: 'Montserrat',Arial,sans-serif;
             font-weight: 500;
             padding: 2px;
@@ -197,7 +197,7 @@ border-top-right-radius: 50px;
             display: flex;
             margin: 2px;
             border-radius: 10px;
-            color: white;
+            color: "0f3250";
             font-family: 'Montserrat',Arial,sans-serif;
             font-weight: 500;
             padding: 2px;
