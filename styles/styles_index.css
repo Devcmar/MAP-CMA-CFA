@@ -206,7 +206,7 @@ right: 5%;
 display: flex;
 align-items: center;
 justify-content: space-between;
-width: 180px; /* La largeur totale du toggle switch */
+width: 200px; /* La largeur totale du toggle switch */
 height: 40px;
 background-color: white;
 border-radius: 40px;
@@ -231,11 +231,13 @@ transition: background-color 0.3s, color 0.3s;
 .toggle-switch .toggle-option.cma {
 background-color: #e94b3c;
 color: white;
+padding-left: 5px;
 }
 
 .toggle-switch .toggle-option.cfa {
 background-color: white;
 color: #e94b3c;
+padding-right: 5px;
 }
 
 .toggle-switch.active .toggle-option.cma {
