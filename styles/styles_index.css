@@ -406,12 +406,6 @@ text-decoration: underline; /* Ajoute un soulignement lors du survol (facultatif
     }
 }
 
-@media screen and (max-width: 1290px) {
-    .search-input-div {
-        margin-left: 7% !important;
-    }
-}
-
 @media screen and (min-width: 720px) and (max-width: 1000px) {
     .list-container {
         width: 85% !important; /* Adjust width as needed */
