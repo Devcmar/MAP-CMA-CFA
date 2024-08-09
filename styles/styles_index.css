@@ -426,6 +426,12 @@ text-decoration: underline; /* Ajoute un soulignement lors du survol (facultatif
         flex-direction: column; /* Aligne les éléments verticalement */
     }
     
+    .suggestions-container{
+        margin-left: 20%;
+    }
+    
+
+
     .left-div{
         order: 2;
         width: 100% !important;
