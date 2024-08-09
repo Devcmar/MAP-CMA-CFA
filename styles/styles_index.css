@@ -46,7 +46,7 @@ font-size: 2rem;
 
 p{
 font-size: 1rem;
-font-family: Arial,sans-serif;
+font-family: 'Montserrat',Arial,sans-serif;
 color: #0f3250;
 margin-top : 10px;
 margin-bottom : 10px;
@@ -213,7 +213,7 @@ border-radius: 40px;
 overflow: hidden;
 cursor: pointer;
 z-index: 1000;
-font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
+font-family: 'Montserrat',Arial,Helvetica,sans-serif;
 font-size: 10px;
 font-size: 0.8rem;
 line-height: 1.5;
@@ -323,7 +323,7 @@ height: 100vh;}
 
 @media screen and (max-width: 1732px) {
     .search-input-div {
-        margin-left: 20%;
+        margin-left: 20% !important;
     }
 }
 
@@ -336,6 +336,12 @@ width: 65%; /* Adjust width as needed */
 margin-left: auto !important;
 margin-right: auto !important;
 }
+}
+
+@media screen and (max-width: 1290px) {
+    .search-input-div {
+        margin-left: 7% !important;
+    }
 }
 
 @media screen and (min-width: 720px) and (max-width: 1000px) {
