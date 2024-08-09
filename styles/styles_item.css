@@ -154,7 +154,7 @@ border-top-right-radius: 50px;
     }
 
     .card-right {
-        height: auto;
+        height: 200px;
         width: 100%;
         border-top-right-radius: 0px;
         border-bottom-left-radius: 50px;
