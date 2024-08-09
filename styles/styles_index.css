@@ -459,7 +459,7 @@ text-decoration: underline; /* Ajoute un soulignement lors du survol (facultatif
     
       }
       .title-item, .search-input-div {
-        margin-left: 2%;
+        margin-left: 2% !important;
       }
       .right-div-list-item {
         padding: 0px;
