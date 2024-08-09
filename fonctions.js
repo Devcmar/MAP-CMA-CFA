@@ -95,6 +95,8 @@ if (from == "cfa"){
                     console.log(buttonFiche);
 
                     var telHref = formatPhoneNumber(row.Telephone);
+                    console.log("tteeeeeeeeelllllllllllll",telHref);
+                    
                     marker[row.id] = L.marker([lat, long], { icon: customIcon }).addTo(map)
                     .bindPopup(
                         `<div class="popupMarker">
@@ -234,7 +236,6 @@ function getUrlParameters() {
     }
     return result;
 }
-
 
 async function processData(id, nom) {
     var csv;
