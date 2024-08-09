@@ -466,9 +466,8 @@ text-decoration: underline; /* Ajoute un soulignement lors du survol (facultatif
         box-sizing: border-box;
     
       }
-      .title-item {
+      .title-item, .search-input-div {
         margin-left: 2%;
-       
       }
       .right-div-list-item {
         padding: 0px;
