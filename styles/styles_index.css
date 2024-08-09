@@ -370,7 +370,7 @@ width: auto;
 outline: none;
 width: fit-content;
 margin-top: 20px;
-margin-left: 23%;
+margin-left: 23% !important;
 margin-right: 5%;
 margin-bottom: 20px;
 background-color: #fff;
