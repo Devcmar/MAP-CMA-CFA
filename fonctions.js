@@ -80,7 +80,6 @@ if (from == "cfa"){
                     var nousContcater = "https://www.cmar-paca.fr/contact";
                     var baseUrl = 'item.html';
                     var parameter = `${encodeURIComponent(row.Id)}/${encodeURIComponent(row.Nom)}`;
-                    console.log("-----------------", row.Id, "   ",row.Nom)
                     var buttonFiche = `<button class="boutton-voir-la-fiche-marker" onclick="window.location.href='${baseUrl}?${parameter}'">VOIR LA FICHE</button>`;
                     //var buttonFiche = `<button class="boutton-voir-la-fiche-marker" onclick="window.location.href='item.html?${encodeURIComponent(row.Id)}/${encodeURIComponent(row.Nom)}'">VOIR LA FICHE</button>`
                 }else if ( from == "cfa"){
@@ -92,17 +91,15 @@ if (from == "cfa"){
         VOIR LE SITE
     </button>`;
                 }
-                    console.log(buttonFiche);
 
                     var telHref = formatPhoneNumber(row.Telephone);
-                    console.log("tteeeeeeeeelllllllllllll",telHref);
                     
                     marker[row.id] = L.marker([lat, long], { icon: customIcon }).addTo(map)
                     .bindPopup(
                         `<div class="popupMarker">
                         <h3 class="h3-popup" >${row.Nom }</h3>
                         <div class= "div-item-marker" ><img src="logo/location-black.svg" class="img-marker" alt=""><p class= "p-marker">${row.Adresse }</p></div>
-                        <div class= "div-item-marker"><img src="logo/telephone.svg" class="img-marker" alt=""><a class="call-link" href="tel:${telHref}">${row.Telephone}</a></div>
+                        <div class= "div-item-marker"><img src="logo/telephone.svg" class="img-marker" alt=""><a target="_blank" class="call-link" href="tel:${telHref}">${row.Telephone}</a></div>
                         <div class= "div-item-marker"><img src="logo/enveloppe.svg" class="img-marker" alt=""><a class="ancre-black" target="_blank" href=${nousContcater} >Nous contacter</a></div>
                         <div class= "div-item-marker">` +
                         buttonFiche +
@@ -303,7 +300,7 @@ async function initializeMap(id, nom) {
 
         var telHref = formatPhoneNumber(data.Telephone);
 
-        textContact.innerHTML = `<a class="call-link" href="tel:${telHref}  ">${data.Telephone}</a>`;
+        textContact.innerHTML = `<a class="call-link" target="_blank" href="tel:${telHref}  ">${data.Telephone}</a>`;
 
         var divLogoAdresse = document.getElementsByClassName('logo-adresse')
         var imgAdresse = document.createElement('img')
@@ -365,12 +362,10 @@ async function searchBar () {
                 const apiKey = "bPQ0oykkFGiJDd9iANdxtBXvu1AjKwczfi3bctcevx3MycCvUjworn9phKIHnfz8";
                 
                 var url = `https://api.distancematrix.ai/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&key=${apiKey}`;
-                console.log("---------url----------", url);
                 // Envoyer la requête API
                 fetch(url)
                     .then(response => response.json())
                     .then(data => {
-                        console.log("-------------data---------", data);
                         var distanceDivs = document.querySelectorAll('.distance-div');
                         distanceDivs.forEach(div => div.remove());
                         var dataDistance = data.rows[0].elements;
