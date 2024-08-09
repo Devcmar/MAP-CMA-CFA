@@ -285,15 +285,12 @@ border: 1px solid #fff;
 border: 1px solid #91b6c0;
 }
 
-
 .search-input {
 border-radius: 50px; /* Arrondir les coins du champ de recherche */
 padding: 10px 40px 10px 20px; /* Ajouter de l'espace pour l'icône à droite */
 font-size: 16px;
 width: 250px;
-
 }
-
 
 .input-bar{
 background-color: #fff;
@@ -303,6 +300,7 @@ margin-top: 5px;
 margin-bottom: 5px;
 outline: none; /* Supprimer la bordure bleue par défaut */
 box-shadow: none; /* Supprimer toute ombre qui pourrait apparaître */
+font-family: "Montserrat";
 }
 
 .input-bar:focus {
@@ -461,7 +459,7 @@ text-decoration: underline; /* Ajoute un soulignement lors du survol (facultatif
     
       }
       .title-item, .search-input-div {
-        margin-left: 2%;
+        margin-left: 2% !important;
       }
       .right-div-list-item {
         padding: 0px;
