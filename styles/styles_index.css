@@ -466,6 +466,7 @@ text-decoration: underline; /* Ajoute un soulignement lors du survol (facultatif
 
       .title-item {
         width: auto;
+        margin-top: 0;
       }
       .right-div-list-item {
         padding: 0px;
