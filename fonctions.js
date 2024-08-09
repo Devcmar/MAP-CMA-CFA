@@ -93,12 +93,14 @@ if (from == "cfa"){
     </button>`;
                 }
                     console.log(buttonFiche);
+
+                    var telHref = formatPhoneNumber(row.Telephone);
                     marker[row.id] = L.marker([lat, long], { icon: customIcon }).addTo(map)
                     .bindPopup(
                         `<div class="popupMarker">
                         <h3 class="h3-popup" >${row.Nom }</h3>
                         <div class= "div-item-marker" ><img src="logo/location-black.svg" class="img-marker" alt=""><p class= "p-marker">${row.Adresse }</p></div>
-                        <div class= "div-item-marker"><img src="logo/telephone.svg" class="img-marker" alt=""><a class="call-link" href="tel:${row.Telephone}">${row.Telephone}</a></div>
+                        <div class= "div-item-marker"><img src="logo/telephone.svg" class="img-marker" alt=""><a class="call-link" href="tel:${telHref}">${row.Telephone}</a></div>
                         <div class= "div-item-marker"><img src="logo/enveloppe.svg" class="img-marker" alt=""><a class="ancre-black" target="_blank" href=${nousContcater} >Nous contacter</a></div>
                         <div class= "div-item-marker">` +
                         buttonFiche +
@@ -298,9 +300,9 @@ async function initializeMap(id, nom) {
 
         //var textContact = document.getElementsByClassName('text-contacts');
 
-        textContact.innerHTML = `<a class="call-link" href="tel:${data.Telephone}  ">${data.Telephone}</a>`;
+        var telHref = formatPhoneNumber(data.Telephone);
 
-        //textContact[0].innerHTML = data.Telephone;
+        textContact.innerHTML = `<a class="call-link" href="tel:${telHref}  ">${data.Telephone}</a>`;
 
         var divLogoAdresse = document.getElementsByClassName('logo-adresse')
         var imgAdresse = document.createElement('img')
@@ -422,4 +424,19 @@ document.addEventListener('click', function(event) {
 
 function goBack() {
     window.history.back();
+}
+
+function formatPhoneNumber(phoneNumber) {
+    // Supprimer les espaces et les autres caractères non numériques
+    let cleaned = phoneNumber.replace(/\D/g, '');
+
+    // Vérifier que le numéro a 10 chiffres
+    if (cleaned.length !== 10) {
+        throw new Error('Numéro de téléphone invalide');
+    }
+
+    // Ajouter l'indicatif international pour la France (+33)
+    let formatted = '+33' + cleaned.substring(1);
+
+    return formatted;
 }
