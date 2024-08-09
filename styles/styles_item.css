@@ -104,7 +104,7 @@ border-top-right-radius: 50px;
     display: flex;
     margin: 20px;
     border-radius: 10px;
-    color: #0f3250;
+    color: #ffffff;
     font-family: 'Montserrat',Arial,sans-serif;
     font-weight: 600;
     padding: 10px;
@@ -115,7 +115,7 @@ border-top-right-radius: 50px;
     display: flex;
     margin: 20px;
     border-radius: 10px;
-    color: #0f3250;
+    color: #ffffff;
     font-family: 'Montserrat',Arial,sans-serif;
     font-weight: 600;
     padding: 10px;
@@ -126,7 +126,7 @@ border-top-right-radius: 50px;
     display: flex;
     margin: 20px;
     border-radius: 10px;
-    color: #0f3250;
+    color: #ffffff;
     font-family: 'Montserrat',Arial,sans-serif;
     font-weight: 600;
     padding: 10px;
@@ -208,7 +208,7 @@ border-top-right-radius: 50px;
 
 } 
 .call-link {
-    color: white; /* Changez la couleur du texte */
+    color: #0f3250; /* Changez la couleur du texte */
     text-decoration: none; /* Supprime le soulignement */
     cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
 }
