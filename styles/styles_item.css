@@ -227,7 +227,7 @@ border-top-right-radius: 50px;
 
 .return {
     padding: 8px 16px; /* Padding autour du texte du bouton */
-    font-family: 'Montserrat';
+    font-family: 'Montserrat' !important;
     font-weight: 300;
     font-size: 16px; /* Taille de la police du bouton */
     color: #fff; /* Couleur du texte du bouton */
@@ -236,6 +236,9 @@ border-top-right-radius: 50px;
     border-radius: 4px; /* Bordures arrondies du bouton */
     cursor: pointer; /* Change le curseur pour indiquer que le bouton est cliquable */
     transition: background-color 0.5s; /* Animation de la couleur de fond lors du survol */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .return:hover {
