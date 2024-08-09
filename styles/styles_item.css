@@ -235,11 +235,12 @@ border-top-right-radius: 50px;
     border: none; /* Supprime les bordures par défaut du bouton */
     border-radius: 4px; /* Bordures arrondies du bouton */
     cursor: pointer; /* Change le curseur pour indiquer que le bouton est cliquable */
-    transition: background-color 0.3s; /* Animation de la couleur de fond lors du survol */
+    transition: background-color 0.5s; /* Animation de la couleur de fond lors du survol */
 }
 
 .return:hover {
-    background-color: #0056b3; /* Couleur de fond du bouton lors du survol */
+    background-color: #B0D2D9; /* Couleur de fond du bouton lors du survol */
+    color: #0f3250;
 }
 
 /* Styles pour les petits écrans */
