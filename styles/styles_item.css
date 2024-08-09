@@ -41,13 +41,11 @@ border-top-right-radius: 50px;
 }
 
 .card-left {
-    background-color: #0f3250;
+    background-color: #ffffff;
     height: fit-content;
     width: 50%;
     border-bottom-left-radius: 50px;
 }
-
-
 
 .imgInfo {
     width : 20px;
@@ -104,7 +102,7 @@ border-top-right-radius: 50px;
     display: flex;
     margin: 20px;
     border-radius: 10px;
-    color: #ffffff;
+    color: #0f3250;
     font-family: 'Montserrat',Arial,sans-serif;
     font-weight: 600;
     padding: 10px;
@@ -115,7 +113,7 @@ border-top-right-radius: 50px;
     display: flex;
     margin: 20px;
     border-radius: 10px;
-    color: #ffffff;
+    color: #0f3250;
     font-family: 'Montserrat',Arial,sans-serif;
     font-weight: 600;
     padding: 10px;
@@ -126,7 +124,7 @@ border-top-right-radius: 50px;
     display: flex;
     margin: 20px;
     border-radius: 10px;
-    color: #ffffff;
+    color: #0f3250;
     font-family: 'Montserrat',Arial,sans-serif;
     font-weight: 600;
     padding: 10px;
