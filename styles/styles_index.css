@@ -156,13 +156,13 @@ margin-left:0px;
 }
 
 .boutton-voir-la-fiche-marker:hover{
-background-color: rgb(180, 0, 0);
+background-color: #e94b3c;
 }
 
 .boutton-voir-la-fiche:hover {
-background-color: rgb(180, 0, 0); /* Fond rouge au survol */
+background-color: #e94b3c; /* Fond rouge au survol */
 color: white; /* Écriture blanche au survol */
-border: 1px solid rgb(180, 0, 0);;
+border: 1px solid #e94b3c;;
 }
 
 .boutton-itineraire {
@@ -185,7 +185,7 @@ user-select: none; /* Standard pour les navigateurs modernes */
 .boutton-itineraire:hover {
 color: white; /* Écriture blanche au survol */
 background-color: white; 
-color: rgb(180, 0, 0);
+color: #e94b3c;
 }
 
 
@@ -476,6 +476,7 @@ font-size: 15px;
 .call-link {
 color: black !important; /* Changez la couleur du texte */
 text-decoration: none; /* Supprime le soulignement */
+font-family: "Montserrat", Arial, Helvetica, sans-serif;
 cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
 }
 
