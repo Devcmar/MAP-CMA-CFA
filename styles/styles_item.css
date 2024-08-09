@@ -100,11 +100,11 @@ border-top-right-radius: 50px;
     font-weight: 400;
 }
 .contacts{
-    background-color: #3d5a6f;
+    background-color: #f2f4f7;
     display: flex;
     margin: 20px;
     border-radius: 10px;
-    color: white;
+    color: #0f3250;
     font-family: 'Montserrat',Arial,sans-serif;
     font-weight: 600;
     padding: 10px;
@@ -115,7 +115,7 @@ border-top-right-radius: 50px;
     display: flex;
     margin: 20px;
     border-radius: 10px;
-    color: white;
+    color: #0f3250;
     font-family: 'Montserrat',Arial,sans-serif;
     font-weight: 600;
     padding: 10px;
@@ -126,7 +126,7 @@ border-top-right-radius: 50px;
     display: flex;
     margin: 20px;
     border-radius: 10px;
-    color: white;
+    color: #0f3250;
     font-family: 'Montserrat',Arial,sans-serif;
     font-weight: 600;
     padding: 10px;
@@ -163,7 +163,7 @@ border-top-right-radius: 50px;
         }
         
         .card-left {
-            background-color: #0f3250;
+            background-color: #ffffff;
             height: fit-content;
         width: 100%;
         border-bottom-left-radius: 0px;
@@ -228,6 +228,8 @@ border-top-right-radius: 50px;
 
 .return {
     padding: 8px 16px; /* Padding autour du texte du bouton */
+    font-family: 'Montserrat';
+    font-weight: 300;
     font-size: 16px; /* Taille de la police du bouton */
     color: #fff; /* Couleur du texte du bouton */
     background-color: #0f3250;; /* Couleur de fond du bouton */
