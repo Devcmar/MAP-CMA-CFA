@@ -270,7 +270,7 @@ async function initializeMap(id, nom) {
         const long = data.long;
 
         // Initialiser la carte Leaflet
-        var map = L.map('map').setView([lat, long], 12);
+        var map = L.map('map').setView([lat, long], 11);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'OpenStreetMap'
