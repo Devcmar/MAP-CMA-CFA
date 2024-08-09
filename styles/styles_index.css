@@ -64,7 +64,7 @@ margin-top : 0px
 }
 
 .title-item{
-margin-top: 3rem;
+margin-top: 3rem !important;
 margin-bottom: 1rem;
 text-align: left;
 width: 55%;
@@ -331,14 +331,12 @@ height: 100vh;}
 
 @media screen and (min-width: 1000px) and (max-width: 1440px) {
 .list-container {
-width: 65%; /* Adjust width as needed */
-margin-left: 20%;
-margin-right: 5%;
+width: 65%;
 }
 .title-item {
 width: 65%; /* Adjust width as needed */
-margin-left: 20%;
-margin-right: 5%;
+margin-left: auto !important;
+margin-right: auto !important;
 }
 }
 
@@ -350,8 +348,8 @@ margin-right: 5%;
 }
 .title-item {
     width: 85% !important; /* Adjust width as needed */
-    margin-left: 2% !important;
-    margin-right: 2% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 }
 
@@ -367,6 +365,7 @@ font-size: 16px;
 width: auto;
 outline: none;
 width: fit-content;
+margin-top: 20px;
 margin-left: 23%;
 margin-right: 5%;
 margin-bottom: 20px;
