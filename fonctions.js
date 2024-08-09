@@ -423,14 +423,3 @@ document.addEventListener('click', function(event) {
 function goBack() {
     window.history.back();
 }
-
-document.querySelectorAll('.leaflet-popup-content-wrapper').forEach(wrapper => {
-    console.log('AAAAAA')
-    const h3Element = wrapper.querySelector('.leaflet-popup-content .popupMarker .h3-popup');
-    console.log('BBBBBB')
-    if (h3Element && h3Element.textContent.includes('Centre de formation')) {
-        console.log('CCCCCC')
-        wrapper.classList.add('has-centre-de-formation');
-        console.log('DDDDDD')
-    }
-});
