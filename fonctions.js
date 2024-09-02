@@ -269,23 +269,7 @@ async function initializeMap(id, nom) {
         const lat = data.lat;
         const long = data.long;
 
-        // Initialiser la carte Leaflet
-        var map = L.map('map').setView([lat, long], 11);
-
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'OpenStreetMap'
-        }).addTo(map);
-
-        var customIcon = L.icon({
-            iconUrl: 'logo/marker.svg', // Remplacez par le chemin de votre image
-            iconSize: [38, 38], // Taille de l'icône
-            iconAnchor: [19, 38], // Point de l'icône qui correspondra à la position du marqueur
-            popupAnchor: [0, -38] // Point où la popup s'ouvre par rapport à l'icône
-        });
-
-        // Ajouter un marqueur
-        L.marker([lat, long], {icon : customIcon}).addTo(map)
-            .bindPopup(`Location: ${lat}, ${long}`)
+       
 
         var divLogoContact = document.getElementsByClassName('logo-contacts')
         var imgContact = document.createElement('img')
@@ -317,6 +301,25 @@ async function initializeMap(id, nom) {
         divLogoHoraire[0].append(imgHoraires);
         var textHoraires = document.getElementsByClassName('text-horaires');
         textHoraires[0].innerHTML = data.Horaires;
+
+ // Initialiser la carte Leaflet
+ var map = L.map('map').setView([lat, long], 11);
+
+ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+     attribution: 'OpenStreetMap'
+ }).addTo(map);
+
+ var customIcon = L.icon({
+     iconUrl: 'logo/marker.svg', // Remplacez par le chemin de votre image
+     iconSize: [38, 38], // Taille de l'icône
+     iconAnchor: [19, 38], // Point de l'icône qui correspondra à la position du marqueur
+     popupAnchor: [0, -38] // Point où la popup s'ouvre par rapport à l'icône
+ });
+
+ // Ajouter un marqueur
+ L.marker([lat, long], {icon : customIcon}).addTo(map)
+     .bindPopup(`Location: ${lat}, ${long}`)
+        
 
     }
 }
