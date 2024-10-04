@@ -366,7 +366,7 @@ async function searchBar () {
                   divListItem.dataset.distance =  distance;
                     var distanceDiv = document.createElement('div');
                     distanceDiv.className = 'distance-div';      
-                    distanceDiv.innerText = distance + "km";
+                    distanceDiv.innerText = distance + " km";
                     divListItem.append(distanceDiv);
                     var containerList = document.querySelector('.list-container');
                         var itemsList = Array.from(containerList.querySelectorAll('.list-item'));
