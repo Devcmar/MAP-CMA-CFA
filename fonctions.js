@@ -363,7 +363,8 @@ async function searchBar () {
                 // Clé API pour Distance Matrix API
                 //const apiKey = 'lQTbIAMxvLyqxYvmKv6DsHN0DjXBCtojha4CNkQOIgq5nFBiFQQESU3NRT31j0lb'; 
                 //const apiKey = "bPQ0oykkFGiJDd9iANdxtBXvu1AjKwczfi3bctcevx3MycCvUjworn9phKIHnfz8";
-                const apiKey = "IWR5dFJdTJw3PQ3qcL6jalyIfIG3hgWsyMqrKUxIZo3GQaydabGW6OTTeMXiUNLE";
+                // const apiKey = "IWR5dFJdTJw3PQ3qcL6jalyIfIG3hgWsyMqrKUxIZo3GQaydabGW6OTTeMXiUNLE";
+                const apiKey = "tvrg0xQv6JVcwgo0iEEuP4EYQ2MoCujH8S3Re1I10aIefU6ucqeDgXzaskvjrbR0";
                 var url = `https://api.distancematrix.ai/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&key=${apiKey}`;
                 // Envoyer la requête API
                 fetch(url)
