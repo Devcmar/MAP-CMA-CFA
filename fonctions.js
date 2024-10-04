@@ -342,10 +342,12 @@ async function searchBar () {
         item.label.toLowerCase().includes(query) || item.code_postale.includes(query)
     );
 
+
     if (filteredData.length > 0) {
         suggestionsContainer.style.display = 'block';
         filteredData.forEach(item => {
-                
+
+            
             var div = document.createElement('div');
             div.className = 'suggestion-item';
             div.textContent = `${item.label} (${item.code_postale})`;
@@ -386,18 +388,11 @@ async function searchBar () {
                 suggestionsContainer.style.display = 'none';
             });
             suggestionsContainer.appendChild(div);
-
+        });
     } else {
         suggestionsContainer.style.display = 'none';
     }
 };
-
-// Cacher les suggestions quand on clique en dehors du champ de saisie
-document.addEventListener('click', function(event) {
-    if (!searchInput.contains(event.target) && !suggestionsContainer.contains(event.target)) {
-        suggestionsContainer.style.display = 'none';
-    }
-});
 
 function goBack() {
     window.history.back();
