@@ -345,62 +345,39 @@ async function searchBar () {
     if (filteredData.length > 0) {
         suggestionsContainer.style.display = 'block';
         filteredData.forEach(item => {
+                
             var div = document.createElement('div');
             div.className = 'suggestion-item';
             div.textContent = `${item.label} (${item.code_postale})`;
-            div.dataset.lat = item.lat; // Utilisation de 'lat'
-            div.dataset.lng = item.long; // Utilisation de 'long'
-            div.addEventListener('click', function() {
-                var originLat = div.dataset.lat;
-                var originLng = div.dataset.lng;
-                var origin = `${originLat},${originLng}`;
 
-                // Préparation des destinations
-                var destinations = csvData
-                    .map(city => `${city.lat},${city.long}`)
-                    .join('|');
+            div.addEventListener('click', function() {
+                var distanceDivs = document.querySelectorAll('.distance-div');
+                distanceDivs.forEach(div => div.remove());
                 
-                // Clé API pour Distance Matrix API
-                //const apiKey = 'lQTbIAMxvLyqxYvmKv6DsHN0DjXBCtojha4CNkQOIgq5nFBiFQQESU3NRT31j0lb'; 
-                //const apiKey = "bPQ0oykkFGiJDd9iANdxtBXvu1AjKwczfi3bctcevx3MycCvUjworn9phKIHnfz8";
-                // const apiKey = "IWR5dFJdTJw3PQ3qcL6jalyIfIG3hgWsyMqrKUxIZo3GQaydabGW6OTTeMXiUNLE";
-                const apiKey = "tvrg0xQv6JVcwgo0iEEuP4EYQ2MoCujH8S3Re1I10aIefU6ucqeDgXzaskvjrbR0";
-                var url = `https://api.distancematrix.ai/maps/api/distancematrix/json?origins=${origin}&destinations=${destinations}&key=${apiKey}`;
-                // Envoyer la requête API
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => {
-                        var distanceDivs = document.querySelectorAll('.distance-div');
-                        distanceDivs.forEach(div => div.remove());
-                        var dataDistance = data.rows[0].elements;
-                        for (let index = 0; index < csvData.length; index++) {
-                            csvData[index].ville["ville"] = csvData[index].Nom
-                            var divListItem = document.getElementById(csvData[index].Nom);
-                            divListItem.dataset.distance =  dataDistance[index].distance.text;
-                            var distanceDiv = document.createElement('div');
-                            distanceDiv.className = 'distance-div';
-                            
-                            distanceDiv.innerText = dataDistance[index].distance.text;
-                            divListItem.append(distanceDiv);
-                        }
-                        var containerList = document.querySelector('.list-container');
+                for (let index = 0; index < csvData.length; index++) {
+
+
+
+                    csvData[index].ville["ville"] = csvData[index].Nom
+                    var divListItem = document.getElementById(csvData[index].Nom);
+                    var distance = String(Math.round(getDistance([csvData[index].lat, csvData[index].long], [item.lat, item.long])/1000 * 10) / 10);
+                  divListItem.dataset.distance =  distance;
+                    var distanceDiv = document.createElement('div');
+                    distanceDiv.className = 'distance-div';      
+                    distanceDiv.innerText = distance;
+                    divListItem.append(distanceDiv);
+                    var containerList = document.querySelector('.list-container');
                         var itemsList = Array.from(containerList.querySelectorAll('.list-item'));
-            
                         // Trier les éléments par distance
                         itemsList.sort((a, b) => {
                             var distanceA = parseFloat(a.dataset.distance);
                             var distanceB = parseFloat(b.dataset.distance);
                             return distanceA - distanceB;
                         });
-
                         map.setView([itemsList[0].dataset.lat, itemsList[0].dataset.long], 9);
-
                         // Réorganiser les éléments dans le DOM
-                        itemsList.forEach(item => containerList.appendChild(item));
-
-                        // Traitez les données de la réponse ici
-                    })
-                    .catch(error => console.error('Erreur:', error));
+                        itemsList.forEach(item => containerList.appendChild(item)); 
+                }
 
                 // Mettre à jour le champ de saisie avec le texte sélectionné
                 searchInput.value = `${item.label} (${item.code_postale})`;
@@ -409,7 +386,7 @@ async function searchBar () {
                 suggestionsContainer.style.display = 'none';
             });
             suggestionsContainer.appendChild(div);
-        });
+
     } else {
         suggestionsContainer.style.display = 'none';
     }
