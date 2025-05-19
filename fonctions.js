@@ -78,7 +78,7 @@ if (from == "cfa"){
             if (lat && long) {
                 if (from == "cma"){
                     //var nousContcater = "https://www.cmar-paca.fr/contact";
-                    var nousContcater = "https://docs.google.com/forms/d/e/1FAIpQLSdT7-Hpj1itS6chSuyskkrTOAB95kag3KCjKGrAjqWPw7Nz6Q/viewform";
+                    var nousContcater = "https://cmar-paca.my.site.com/prendreunrendezvous/s/";
                     var baseUrl = 'item.html';
                     var parameter = `${encodeURIComponent(row.Id)}/${encodeURIComponent(row.Nom)}`;
                     var buttonFiche = `<button class="boutton-voir-la-fiche-marker" onclick="window.location.href='${baseUrl}?${parameter}'">VOIR LA FICHE</button>`;
